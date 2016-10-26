@@ -24,7 +24,7 @@ public class User implements Serializable {
 	@Override
 	public String toString() {
 		return "User [user_id=" + user_id + ", user_name=" + user_name + ", user_age=" + user_age + ", user_gender="
-				+ user_gender + "]";
+				+ (user_gender == 0 ? "男" : "女") + "]";
 	}
 
 	public Integer getUser_id() {

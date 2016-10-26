@@ -9,13 +9,13 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 public class MyBatisConnUtil {
 	private static final String MYBATIS_CONFIG = "mybatis-config.xml";
-	private static SqlSession session = null;
+//	private static SqlSession session = null;
 	private static InputStream is = null;
 
 	public static SqlSession getMybatisConn() {
 		is = MyBatisConnUtil.class.getClassLoader().getResourceAsStream(MYBATIS_CONFIG);
 		SqlSessionFactory sessionFactory = new SqlSessionFactoryBuilder().build(is);
-		session = sessionFactory.openSession();
+		SqlSession session = sessionFactory.openSession();
 
 		if (null != is) {
 			try {
@@ -29,7 +29,7 @@ public class MyBatisConnUtil {
 		return session;
 	}
 	
-	public void sessionClose(){
+	public static void sessionClose(SqlSession session){
 		if(null != session){
 			session.close();
 		}
