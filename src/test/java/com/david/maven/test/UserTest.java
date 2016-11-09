@@ -35,6 +35,21 @@ public class UserTest {
 
 		logger.info("userList:" + uList);
 	}
+	
+	@Test
+	public void testSaveUser(){
+		session = MyBatisConnUtil.getMybatisConn();
+		
+		String statement = "userMapper.saveUser";
+		User user = new User();
+		user.setUser_name("教授");
+		user.setUser_age(20);
+		user.setUser_gender(0);
+		
+		int ret = session.insert(statement, user);
+		session.commit();
+		logger.info(ret + "");
+	}
 
 	private void closeSession() {
 		MyBatisConnUtil.sessionClose(session);
