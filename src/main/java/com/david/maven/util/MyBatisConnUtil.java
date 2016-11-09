@@ -7,6 +7,11 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+/**
+ * 
+ * @author David
+ *
+ */
 public class MyBatisConnUtil {
 	private static final String MYBATIS_CONFIG = "mybatis-config.xml";
 //	private static SqlSession session = null;
